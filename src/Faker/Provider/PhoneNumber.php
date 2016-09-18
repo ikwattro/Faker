@@ -40,4 +40,20 @@ class PhoneNumber extends Base
         $imei .= Luhn::computeCheckDigit($imei);
         return $imei;
     }
+
+    /**
+     * Internation Mobile Subscriber Identity
+     *
+     * @link https://fr.wikipedia.org/wiki/International_Mobile_Subscriber_Identity
+     * @example 228012176510739
+     *
+     * @return int
+     */
+    public function imsi()
+    {
+        $imsi = static::numberBetween(202, 750);
+        $imsi .= static::numerify('############');
+
+        return $imsi;
+    }
 }
